@@ -62,5 +62,26 @@ class InteractiveCalculator(Calculator):
         answer = input(f"\n{Color.yellow}Do you want to continue? (y/n): {Color.end}").strip().lower()
         return answer in ("y")
 
-    
+    def run(self):
+        print("Welcome to the Simple Calculator!")
+        while True:
+            self.display_menu()
+            choice = self.get_operation_choice()
+            num1, num2 = self.get_two_numbers()
 
+            try:
+                _, operation_func = self.operations[choice]
+                result = operation_func(num1, num2)
+                if result.is_integer():
+                    result_display = int(result)
+                else:
+                    result_display = round(result)
+                print(f"\n{Color.green}Result: {result_display}{Color.end}")
+            except ZeroDivisionError as e:
+                print(f"\n{Color.red}Error: {e}{Color.end}")
+            except Exception as e:
+                print(f"\n{Color.red}Unexpected Error: {e}{Color.end}")
+
+            if not self.ask_to_continue():
+                print(f"{Color.cyan}Thank you!{Color.end}")
+                break
