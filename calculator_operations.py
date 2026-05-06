@@ -30,5 +30,13 @@ class InteractiveCalculator(Calculator):
             3: ("Multiplication", self.multiply),
             4: ("Division", self.divide),
         }
+    def display_menu(self):
+        print(f"\n{Color.cyan}{'='*30}{Color.end}")
+        print(f"{Color.yellow}{Color.bold} Calculator Menu{Color.end}")
+        print(f"{Color.cyan}{'='*30}{Color.end}")
+        for key, (name, _) in self.operations.items():
+            print(f"{Color.green}{key}.{Color.end} {name}")
+        print(f"{Color.cyan}{'='*30}{Color.end}")
 
+    
 
