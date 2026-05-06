@@ -38,5 +38,17 @@ class InteractiveCalculator(Calculator):
             print(f"{Color.green}{key}.{Color.end} {name}")
         print(f"{Color.cyan}{'='*30}{Color.end}")
 
-    
+    def get_operation_choice(self):
+        while True:
+            try:
+                choice = int(input(f"{Color.blue}Choose an operation (1-4): {Color.end}"))
+                if choice in self.operations:
+                    return choice
+                else:
+                    print(f"{Color.red}Invalid choice. Please enter a number between 1 and 4{Color.end}")
+            except ValueError:
+                print(f"{Color.red}Invalid input. Please enter a number.{Color.end}")
+
+                
+
 
