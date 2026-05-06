@@ -21,4 +21,14 @@ class Calculator:
             raise ZeroDivisionError("Division by zero is not allowed. It is unidentified.")
         return a / b
 
-    
+class InteractiveCalculator(Calculator):
+    def __init__(self):
+        super().__init__()
+        self.operations = {
+            1: ("Addition", self.add),
+            2: ("Subtraction", self.subtract),
+            3: ("Multiplication", self.multiply),
+            4: ("Division", self.divide),
+        }
+
+
