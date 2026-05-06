@@ -49,6 +49,18 @@ class InteractiveCalculator(Calculator):
             except ValueError:
                 print(f"{Color.red}Invalid input. Please enter a number.{Color.end}")
 
-                
+    def get_two_numbers(self):
+        while True:
+            try:
+                num1 = float(input(f"{Color.blue}Enter first number: {Color.end}"))
+                num2 = float(input(f"{Color.yellow}Enter second number: {Color.end}"))
+                return num1, num2
+            except ValueError:
+                print(f"{Color.red}Invalid input. Please enter a numeric value (e.g., 5, 3.2).{Color.end}")
 
+    def ask_to_continue(self):
+        answer = input(f"\n{Color.yellow}Do you want to continue? (y/n): {Color.end}").strip().lower()
+        return answer in ("y")
+
+    
 
